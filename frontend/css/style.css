@@ -13,6 +13,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.hover-none:hover {
+  color: #fff;
+}
+
 .container{
   margin-top: 30px;
 }
