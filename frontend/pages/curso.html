@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +15,15 @@
 </head>
 
 <body>
-  
+
   <div class="container">
+
+    <h1 class="text-center">Cursos</h1>
+
     <a href="../index.html"><u>Voltar</u></a>
-    <a href="" class="botao">
-      <button type="button" class="btn btn-primary float-end ">
-        <a href="../pages/cadastrarDisciplina.html">Adicionar disciplina</a>
+    <a href="../pages/cadastrar-curso.html" class="botao">
+      <button type="button" class="btn btn-primary float-end">
+        Adicionar curso
       </button>
     </a>
 
@@ -27,31 +31,31 @@
       <thead class="table-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Titulo</th>
-          <th scope="col">Sala</th>
-          <th scope="col">Carga Horaria</th>
+          <th scope="col">Título</th>
+          <th scope="col">Professor</th>
+          <th scope="col">Carga Horária</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
+      <tbody id="table-body"></tbody>
     </table>
   </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    listarCursos().then(cursos => {
+
+      console.log(cursos);
+      cursos.forEach(curso => {
+        document.getElementById('table-body').innerHTML +=
+          '<tr>' +
+          '<th scope="row">' + curso.id + '</th>' +
+          '<td>' + curso.titulo + '</td>' +
+          '<td>' + curso.professor + '</td>' +
+          '<td>' + curso.cargaHoraria + '</td>' +
+          '</tr>'
+      });
+    });
+  </script>
 </body>
+
 </html>

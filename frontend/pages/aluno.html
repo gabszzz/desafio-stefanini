@@ -17,10 +17,13 @@
 <body>
 
   <div class="container">
+
+    <h1 class="text-center">Alunos</h1>
+
     <a href="../index.html"><u>Voltar</u></a>
-    <a href="" class="botao">
+    <a href="../pages/cadastrar-aluno.html" class="botao">
       <button type="button" class="btn btn-primary float-end">
-        <a href="../pages/cadastrarAluno.html" class="hover-none">Adicionar aluno</a>
+        Adicionar aluno
       </button>
     </a>
 
@@ -33,22 +36,26 @@
           <th scope="col">Curso</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-      </tbody>
+      <tbody id="table-body"></tbody>
     </table>
 
   </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    listarAlunos().then(alunos => {
+
+      alunos.forEach(aluno => {
+        document.getElementById('table-body').innerHTML +=
+          '<tr>' +
+          '<th scope="row">' + aluno.id + '</th>' +
+          '<td>' + aluno.nome + '</td>' +
+          '<td>' + aluno.genero + '</td>' +
+          '<td>' + aluno.curso.titulo + '</td>' +
+          '</tr>'
+      });
+    });
+  </script>
 </body>
+
 </html>
